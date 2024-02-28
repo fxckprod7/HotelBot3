@@ -66,7 +66,7 @@ async def callbacks_handler(callback: CallbackQuery):
                                               f"To check your time just enter <b><i>/my_time</i></b>")
             else:
                 await callback.message.answer(f"You already have your time for today.\n"
-                                              f"Try again after 00:00 with command /queue.")
+                                              f"Try again after 00:00 with /queue.")
 
     elif "finish" in callback_data:
         if "time" in callback_data:
