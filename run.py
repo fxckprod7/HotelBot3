@@ -5,6 +5,7 @@ from os import getenv
 
 from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
+from aiogram.client.session.aiohttp import AiohttpSession
 
 from core.handlers.register import register_handlers
 from core.utils.commands import set_commands
@@ -13,7 +14,9 @@ from core.database.db_manager import Database
 
 TOKEN = getenv("BOT_TOKEN")
 
-bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
+session = AiohttpSession(proxy="protocol://host:port/")
+
+bot = Bot(TOKEN, parse_mode=ParseMode.HTML, session=session)
 dp = Dispatcher()
 
 db = Database(["core", "database", "database.db"], "RunDB")
