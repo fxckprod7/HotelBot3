@@ -14,7 +14,7 @@ from core.database.db_manager import Database
 
 TOKEN = getenv("BOT_TOKEN")
 
-session = AiohttpSession(proxy="protocol://host:port/")
+session = AiohttpSession(proxy="http://proxy.server:3128")
 
 bot = Bot(TOKEN, parse_mode=ParseMode.HTML, session=session)
 dp = Dispatcher()
