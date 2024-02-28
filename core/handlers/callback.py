@@ -29,6 +29,7 @@ async def callbacks_handler(callback: CallbackQuery):
             await callback.message.answer(f"Next time available: <b>{next_time_available}</b>\n\n"
                                           f"Select start-time that you would like to take:\n",
                                           reply_markup=await time_start_selector_buttons(next_time_available))
+
     elif "select" in callback_data:
 
         if "time_start" in callback_data:
@@ -88,3 +89,5 @@ async def callbacks_handler(callback: CallbackQuery):
 
     else:
         await callback.message.answer("Sorry, something went wrong..")
+
+    await callback.answer()
